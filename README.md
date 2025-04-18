@@ -59,9 +59,13 @@ Welcome to my corner of the internet! I'm a passionate **Software Developer**, *
 
 - 🌐 [LinkedIn](https://www.linkedin.com/in/ritikmahyavanshi/)
 - 📬 ritikmahyavanshi2311@gmail.com
-- 💻 [Portfolio Website](https://ritikmahy5.vercel.app) *(under construction)*
+- 💻 [Portfolio Website](https://ritikmahyavanshi.com) *(under construction)*
 
 ---
+![GitHub followers](https://img.shields.io/github/followers/ritikmahy5?label=Follow&style=social)
+![LinkedIn](https://img.shields.io/badge/-ritikmahyavanshi-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/ritikmahyavanshi/)
+![Portfolio](https://img.shields.io/badge/Portfolio-Live-green?style=flat-square&logo=vercel&link=https://ritikmahy5.vercel.app)
+
 
 ## 🧠 Fun Fact
 
