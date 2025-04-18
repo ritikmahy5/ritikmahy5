@@ -6,6 +6,10 @@ I’m a developer, researcher, and problem-solver building future-proof tech at 
 
 ---
 
+![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
+
+---
+
 ## 📌 Tech Stack
 
 **Languages:**  
@@ -78,10 +82,16 @@ Scrapes job portals, sends real-time alerts, allows custom filters, and helps st
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Stats (Dark Mode)
 
 ![Ritik's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ritikmahy5&show_icons=true&theme=tokyonight)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ritikmahy5&layout=compact&theme=tokyonight)
+
+---
+
+## 👁️ Visitor Count
+
+![Visitor Badge](https://komarev.com/ghpvc/?username=ritikmahy5&label=Visitors&color=0e75b6&style=flat)
 
 ---
 
