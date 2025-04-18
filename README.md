@@ -66,6 +66,26 @@ Welcome to my corner of the internet! I'm a passionate **Software Developer**, *
 ![LinkedIn](https://img.shields.io/badge/-ritikmahyavanshi-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/ritikmahyavanshi/)
 ![Portfolio](https://img.shields.io/badge/Portfolio-Live-green?style=flat-square&logo=vercel&link=https://ritikmahy5.vercel.app)
 
+## 📌 Tech Stack
+
+**Languages:**  
+![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat&logo=java&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC.svg?style=flat&logo=typescript&logoColor=white)
+
+**Backend:**  
+![Spring Boot](https://img.shields.io/badge/SpringBoot-%236DB33F.svg?style=flat&logo=springboot&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933.svg?style=flat&logo=node.js&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20.svg?style=flat&logo=apache-kafka&logoColor=white)
+
+**Databases:**  
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192.svg?style=flat&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248.svg?style=flat&logo=mongodb&logoColor=white)
+
+**Tools & DevOps:**  
+![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=flat&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=flat&logo=github-actions&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000.svg?style=flat&logo=vercel&logoColor=white)
 
 ## 🧠 Fun Fact
 
