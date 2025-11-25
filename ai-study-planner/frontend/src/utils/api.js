@@ -106,3 +106,137 @@ export async function getRecommendations(data) {
   
   return response.json();
 }
+
+// ============== ANALYTICS ==============
+
+export async function getAnalytics() {
+  const response = await fetch(`${API_BASE_URL}/analytics`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch analytics');
+  }
+  
+  return response.json();
+}
+
+export async function logStudySession(sessionData) {
+  const response = await fetch(`${API_BASE_URL}/study-sessions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sessionData),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to log study session');
+  }
+  
+  return response.json();
+}
+
+// ============== ACHIEVEMENTS ==============
+
+export async function getAchievements() {
+  const response = await fetch(`${API_BASE_URL}/achievements`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch achievements');
+  }
+  
+  return response.json();
+}
+
+// ============== SPACED REPETITION ==============
+
+export async function getReviews() {
+  const response = await fetch(`${API_BASE_URL}/reviews`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch reviews');
+  }
+  
+  return response.json();
+}
+
+export async function submitReview(topic, quality) {
+  const response = await fetch(`${API_BASE_URL}/reviews`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ topic, quality }),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to submit review');
+  }
+  
+  return response.json();
+}
+
+export async function initializeReviews(planId) {
+  const response = await fetch(`${API_BASE_URL}/reviews/init/${planId}`, {
+    method: 'POST',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to initialize reviews');
+  }
+  
+  return response.json();
+}
+
+// ============== QUIZZES ==============
+
+export async function generateQuiz(planId, questionCount = 5) {
+  const response = await fetch(`${API_BASE_URL}/quizzes/generate`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ planId, questionCount }),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to generate quiz');
+  }
+  
+  return response.json();
+}
+
+export async function getQuiz(quizId) {
+  const response = await fetch(`${API_BASE_URL}/quizzes/${quizId}`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch quiz');
+  }
+  
+  return response.json();
+}
+
+export async function submitQuiz(quizId, answers) {
+  const response = await fetch(`${API_BASE_URL}/quizzes/${quizId}/submit`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ answers }),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to submit quiz');
+  }
+  
+  return response.json();
+}
+
+export async function getQuizHistory() {
+  const response = await fetch(`${API_BASE_URL}/quizzes`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch quiz history');
+  }
+  
+  return response.json();
+}

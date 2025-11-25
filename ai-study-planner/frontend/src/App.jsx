@@ -4,6 +4,10 @@ import Dashboard from './pages/Dashboard';
 import CreatePlan from './pages/CreatePlan';
 import PlanDetail from './pages/PlanDetail';
 import Recommendations from './pages/Recommendations';
+import Analytics from './pages/Analytics';
+import Achievements from './pages/Achievements';
+import SpacedRepetition from './pages/SpacedRepetition';
+import Quiz from './pages/Quiz';
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
             <Route path="/create" element={<CreatePlan />} />
             <Route path="/plan/:id" element={<PlanDetail />} />
             <Route path="/recommendations" element={<Recommendations />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/achievements" element={<Achievements />} />
+            <Route path="/reviews" element={<SpacedRepetition />} />
+            <Route path="/quiz" element={<Quiz />} />
           </Routes>
         </main>
         <footer className="bg-white border-t border-gray-200 mt-auto py-6">
