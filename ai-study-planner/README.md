@@ -107,14 +107,22 @@ ai-study-planner/
 ### Dashboard
 The main dashboard shows all your study plans with progress indicators.
 
+![Dashboard](https://github.com/user-attachments/assets/ff4e97a8-010e-49f2-90e3-47ea493ba01a)
+
 ### Create Study Plan
 AI-powered form to generate personalized study plans.
+
+![Create Plan](https://github.com/user-attachments/assets/0d79858f-a3f9-4f91-84e2-4f30e97842ea)
 
 ### Plan Details
 Detailed view of your study plan with tasks, tips, and progress tracking.
 
-### Recommendations
-Get AI-powered study recommendations based on your learning style.
+![Plan Detail](https://github.com/user-attachments/assets/60745e56-f6fc-46ce-a6a3-84f4973806b2)
+
+### Tasks View
+Track your daily tasks and mark them as complete.
+
+![Tasks View](https://github.com/user-attachments/assets/3623fa0b-6b4c-40f1-b383-9bf73c33edf3)
 
 ## 🛠️ Tech Stack
 
