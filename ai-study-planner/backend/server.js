@@ -10,8 +10,15 @@ const fs = require('fs');
 
 dotenv.config();
 
+// Database configuration
+const { connectDB } = require('./config/database');
+const models = require('./models');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Track if we're using MongoDB or in-memory storage
+let useDatabase = false;
 
 // Configure multer for file uploads
 const storage = multer.memoryStorage();
@@ -33,7 +40,7 @@ const upload = multer({
 app.use(cors());
 app.use(express.json());
 
-// In-memory storage for study plans (in production, use a database)
+// In-memory storage fallback when MongoDB is not available
 const studyPlans = new Map();
 const tasks = new Map();
 const studySessions = new Map();
@@ -45,6 +52,7 @@ const chatHistory = new Map();
 const notes = new Map();
 const syllabi = new Map();
 const assignments = new Map();
+const pomodoroSessions = new Map();
 
 // Achievement definitions
 const ACHIEVEMENT_DEFINITIONS = [
@@ -1973,10 +1981,245 @@ app.get('/api/assignments/reminders', (req, res) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🎓 AI Study Planner API running on port ${PORT}`);
-  console.log(`📚 OpenAI Integration: ${openai ? 'Enabled' : 'Disabled (using mock responses)'}`);
+// ============== POMODORO TIMER ENDPOINTS ==============
+
+// Log a pomodoro session
+app.post('/api/pomodoro/sessions', async (req, res) => {
+  const { planId, duration, type, topics } = req.body;
+  
+  if (!duration || duration < 1) {
+    return res.status(400).json({ error: 'Duration is required and must be positive' });
+  }
+  
+  const session = {
+    id: uuidv4(),
+    planId: planId || null,
+    duration, // in minutes
+    type: type || 'focus', // 'focus', 'shortBreak', 'longBreak'
+    topics: topics || [],
+    date: new Date().toISOString(),
+  };
+  
+  pomodoroSessions.set(session.id, session);
+  
+  // Update user stats
+  if (type === 'focus') {
+    userStats.totalStudyMinutes += duration;
+    updateStreak();
+  }
+  
+  res.status(201).json(session);
 });
+
+// Get pomodoro statistics
+app.get('/api/pomodoro/stats', (req, res) => {
+  const sessions = Array.from(pomodoroSessions.values());
+  const focusSessions = sessions.filter(s => s.type === 'focus');
+  
+  // Calculate stats for different time periods
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  const weekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+  
+  const todaySessions = focusSessions.filter(s => 
+    s.date.split('T')[0] === today
+  );
+  
+  const weekSessions = focusSessions.filter(s => 
+    new Date(s.date) >= weekAgo
+  );
+  
+  // Daily stats for the last 7 days
+  const dailyStats = [];
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date(now);
+    date.setDate(date.getDate() - i);
+    const dateStr = date.toISOString().split('T')[0];
+    
+    const daySessions = focusSessions.filter(s => 
+      s.date.split('T')[0] === dateStr
+    );
+    
+    dailyStats.push({
+      date: dateStr,
+      day: date.toLocaleDateString('en-US', { weekday: 'short' }),
+      sessions: daySessions.length,
+      minutes: daySessions.reduce((sum, s) => sum + s.duration, 0),
+    });
+  }
+  
+  res.json({
+    today: {
+      sessions: todaySessions.length,
+      totalMinutes: todaySessions.reduce((sum, s) => sum + s.duration, 0),
+    },
+    thisWeek: {
+      sessions: weekSessions.length,
+      totalMinutes: weekSessions.reduce((sum, s) => sum + s.duration, 0),
+    },
+    allTime: {
+      sessions: focusSessions.length,
+      totalMinutes: focusSessions.reduce((sum, s) => sum + s.duration, 0),
+    },
+    dailyStats,
+  });
+});
+
+// Get recent pomodoro sessions
+app.get('/api/pomodoro/sessions', (req, res) => {
+  const sessions = Array.from(pomodoroSessions.values())
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 50);
+  
+  res.json(sessions);
+});
+
+// ============== CALENDAR ENDPOINTS ==============
+
+// Get all calendar events (combined view)
+app.get('/api/calendar/events', (req, res) => {
+  const { startDate, endDate } = req.query;
+  const events = [];
+  
+  // Add assignments as events
+  for (const assignment of assignments.values()) {
+    events.push({
+      id: assignment.id,
+      title: assignment.title,
+      date: assignment.dueDate,
+      type: assignment.type || 'assignment',
+      subject: assignment.subject,
+      completed: assignment.completed,
+      source: 'assignment',
+    });
+  }
+  
+  // Add study plan tasks as events
+  for (const plan of studyPlans.values()) {
+    const startDate = new Date(plan.createdAt);
+    plan.content?.dailyPlan?.forEach((day, index) => {
+      const taskDate = new Date(startDate);
+      taskDate.setDate(startDate.getDate() + index);
+      
+      events.push({
+        id: `${plan.id}-day-${day.day}`,
+        title: `${plan.subject} - Day ${day.day}`,
+        date: taskDate.toISOString().split('T')[0],
+        type: 'study',
+        subject: plan.subject,
+        topics: day.topics,
+        duration: day.duration,
+        source: 'studyPlan',
+      });
+    });
+  }
+  
+  // Filter by date range if provided
+  let filteredEvents = events;
+  if (startDate) {
+    filteredEvents = filteredEvents.filter(e => e.date >= startDate);
+  }
+  if (endDate) {
+    filteredEvents = filteredEvents.filter(e => e.date <= endDate);
+  }
+  
+  // Sort by date
+  filteredEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+  
+  res.json(filteredEvents);
+});
+
+// Export calendar as ICS
+app.get('/api/calendar/export/ics', (req, res) => {
+  const events = [];
+  
+  // Collect all events
+  for (const assignment of assignments.values()) {
+    events.push({
+      id: assignment.id,
+      title: assignment.title,
+      date: assignment.dueDate,
+      description: `${assignment.subject}: ${assignment.description || assignment.title}`,
+      type: assignment.type,
+    });
+  }
+  
+  for (const plan of studyPlans.values()) {
+    const startDate = new Date(plan.createdAt);
+    plan.content?.dailyPlan?.forEach((day, index) => {
+      const taskDate = new Date(startDate);
+      taskDate.setDate(startDate.getDate() + index);
+      
+      events.push({
+        id: `${plan.id}-day-${day.day}`,
+        title: `Study: ${plan.subject} - Day ${day.day}`,
+        date: taskDate.toISOString().split('T')[0],
+        description: `Topics: ${day.topics?.join(', ')}. Activities: ${day.activities?.join(', ')}`,
+        type: 'study',
+      });
+    });
+  }
+  
+  // Generate ICS content
+  let icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//AI Study Planner//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+  ];
+  
+  events.forEach(event => {
+    const date = new Date(event.date);
+    const dateOnlyStr = date.toISOString().split('T')[0].replace(/-/g, '');
+    
+    icsContent.push(
+      'BEGIN:VEVENT',
+      `UID:${event.id}@ai-study-planner`,
+      `DTSTART;VALUE=DATE:${dateOnlyStr}`,
+      `SUMMARY:${event.title}`,
+      `DESCRIPTION:${(event.description || '').replace(/\n/g, '\\n')}`,
+      `CATEGORIES:${event.type}`,
+      'END:VEVENT'
+    );
+  });
+  
+  icsContent.push('END:VCALENDAR');
+  
+  res.setHeader('Content-Type', 'text/calendar');
+  res.setHeader('Content-Disposition', 'attachment; filename="study-calendar.ics"');
+  res.send(icsContent.join('\r\n'));
+});
+
+// ============== DATABASE INFO ENDPOINT ==============
+
+// Get database status
+app.get('/api/status', (req, res) => {
+  res.json({
+    status: 'ok',
+    server: 'AI Study Planner API',
+    storage: useDatabase ? 'MongoDB' : 'In-Memory',
+    features: {
+      openai: !!openai,
+      database: useDatabase,
+      fileUpload: true,
+    },
+    version: '2.0.0',
+  });
+});
+
+// Start server with database connection
+const startServer = async () => {
+  // Try to connect to MongoDB
+  useDatabase = await connectDB();
+  
+  app.listen(PORT, () => {
+    console.log(`🎓 AI Study Planner API running on port ${PORT}`);
+    console.log(`📚 OpenAI Integration: ${openai ? 'Enabled' : 'Disabled (using mock responses)'}`);
+    console.log(`💾 Storage: ${useDatabase ? 'MongoDB' : 'In-Memory (set MONGODB_URI for persistence)'}`);
+  });
+};
+
+startServer();
 
 module.exports = app;

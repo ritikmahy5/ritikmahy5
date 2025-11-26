@@ -6,15 +6,44 @@ An AI-powered study planner that helps you create personalized study plans, trac
 ![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=flat-square&logo=node.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=flat-square&logo=tailwindcss)
+![MongoDB](https://img.shields.io/badge/MongoDB-Optional-47A248?style=flat-square&logo=mongodb)
 
 ## ✨ Features
 
+### Core Features
 - **🤖 AI-Powered Plan Generation**: Create personalized study plans based on your subject, goals, and difficulty level
 - **📊 Progress Tracking**: Track your learning progress with visual indicators
 - **✅ Task Management**: Mark tasks as complete and track your daily activities
 - **💡 Smart Recommendations**: Get AI-powered study recommendations and resources
 - **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
 - **🎨 Modern UI**: Beautiful, intuitive interface built with Tailwind CSS
+
+### Learning & Progress
+- **📊 Analytics Dashboard**: Study time charts, task completion trends, and performance visualization
+- **🏆 Gamification System**: 12 achievement badges, streak tracking, and progress milestones
+- **📈 Spaced Repetition**: SM-2 algorithm for optimal review scheduling
+- **🧠 AI-powered Quizzes**: Auto-generated quizzes based on study topics
+
+### Syllabus & Assignment Management
+- **📚 Syllabus Upload**: Upload PDF/TXT/DOC syllabi for multiple subjects
+- **🤖 AI Syllabus Parsing**: Automatically extract topics, assignments, and due dates
+- **📅 Auto-generated Study Plans**: Create plans directly from uploaded syllabi
+- **🔔 Assignment Reminders**: Track all assignments with due date alerts
+
+### AI Features
+- **🤖 AI Chat Tutor**: Ask questions about your study topics
+- **🎯 AI Study Coach**: Personalized motivation and study tips
+- **📝 AI Note Summarizer**: Summarize study notes with key points
+- **🔍 AI Weakness Analyzer**: Identify areas needing improvement
+
+### Productivity Features
+- **⏱️ Pomodoro Timer**: Built-in timer for focused study sessions with customizable intervals
+- **📅 Study Calendar**: Visual calendar with all study events and assignments
+- **📤 Calendar Export**: Export to Google Calendar, Outlook, or ICS file
+
+### Data Persistence
+- **💾 MongoDB Integration**: Optional database storage for persistent data
+- **☁️ In-Memory Fallback**: Works without database using in-memory storage
 
 ## 🚀 Quick Start
 
@@ -23,6 +52,7 @@ An AI-powered study planner that helps you create personalized study plans, trac
 - Node.js 18+ 
 - npm or yarn
 - OpenAI API key (optional - the app works without it using mock responses)
+- MongoDB (optional - the app works without it using in-memory storage)
 
 ### Installation
 
@@ -46,7 +76,9 @@ An AI-powered study planner that helps you create personalized study plans, trac
    ```bash
    cd backend
    cp .env.example .env
-   # Edit .env and add your OpenAI API key (optional)
+   # Edit .env and add your configuration:
+   # - OPENAI_API_KEY (optional) for AI features
+   # - MONGODB_URI (optional) for persistent storage
    ```
 
 4. **Start the development servers**
@@ -71,6 +103,17 @@ An AI-powered study planner that helps you create personalized study plans, trac
 ```
 ai-study-planner/
 ├── backend/                 # Express.js backend
+│   ├── config/
+│   │   └── database.js     # MongoDB connection
+│   ├── models/             # Mongoose models
+│   │   ├── StudyPlan.js
+│   │   ├── Task.js
+│   │   ├── Assignment.js
+│   │   ├── StudySession.js
+│   │   ├── UserStats.js
+│   │   ├── Syllabus.js
+│   │   ├── QuizAttempt.js
+│   │   └── ReviewSchedule.js
 │   ├── server.js           # Main server file
 │   ├── .env.example        # Environment variables template
 │   └── package.json
@@ -78,6 +121,21 @@ ai-study-planner/
 │   ├── src/
 │   │   ├── components/    # Reusable UI components
 │   │   ├── pages/         # Page components
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── CreatePlan.jsx
+│   │   │   ├── PlanDetail.jsx
+│   │   │   ├── Analytics.jsx
+│   │   │   ├── Achievements.jsx
+│   │   │   ├── Quiz.jsx
+│   │   │   ├── SpacedRepetition.jsx
+│   │   │   ├── SyllabusUpload.jsx
+│   │   │   ├── AssignmentReminders.jsx
+│   │   │   ├── PomodoroTimer.jsx
+│   │   │   ├── StudyCalendar.jsx
+│   │   │   ├── AIChatTutor.jsx
+│   │   │   ├── AIStudyCoach.jsx
+│   │   │   ├── AINoteSummarizer.jsx
+│   │   │   └── AIWeaknessAnalyzer.jsx
 │   │   ├── styles/        # CSS styles
 │   │   ├── utils/         # API utilities
 │   │   ├── App.jsx        # Main app component
@@ -90,9 +148,9 @@ ai-study-planner/
 
 ## 🔌 API Endpoints
 
+### Study Plans
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/health` | Health check |
 | POST | `/api/study-plans` | Create a new study plan |
 | GET | `/api/study-plans` | Get all study plans |
 | GET | `/api/study-plans/:id` | Get a specific study plan |
@@ -100,7 +158,53 @@ ai-study-planner/
 | DELETE | `/api/study-plans/:id` | Delete a study plan |
 | GET | `/api/study-plans/:id/tasks` | Get tasks for a study plan |
 | PATCH | `/api/tasks/:id` | Update a task (mark complete) |
-| POST | `/api/recommendations` | Get AI study recommendations |
+
+### Analytics & Achievements
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/analytics` | Get analytics data |
+| GET | `/api/achievements` | Get achievements and progress |
+| POST | `/api/study-sessions` | Log a study session |
+
+### Quizzes
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/quizzes/generate` | Generate a quiz |
+| GET | `/api/quizzes/:id` | Get a quiz |
+| POST | `/api/quizzes/:id/submit` | Submit quiz answers |
+
+### Spaced Repetition
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/reviews` | Get review schedule |
+| POST | `/api/reviews` | Submit review result |
+| POST | `/api/reviews/init/:planId` | Initialize topics |
+
+### Syllabus & Assignments
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/syllabus/upload` | Upload syllabus |
+| GET | `/api/syllabus` | Get all syllabi |
+| POST | `/api/syllabus/:id/generate-plan` | Generate plan from syllabus |
+| GET | `/api/assignments` | Get all assignments |
+| POST | `/api/assignments` | Create assignment |
+| GET | `/api/assignments/reminders` | Get assignment reminders |
+
+### AI Features
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/ai/chat` | Chat with AI tutor |
+| POST | `/api/ai/coach` | Get coaching advice |
+| POST | `/api/ai/summarize` | Summarize notes |
+| GET | `/api/ai/analyze-weaknesses` | Analyze weaknesses |
+
+### Productivity
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/pomodoro/sessions` | Log pomodoro session |
+| GET | `/api/pomodoro/stats` | Get pomodoro statistics |
+| GET | `/api/calendar/events` | Get calendar events |
+| GET | `/api/calendar/export/ics` | Export calendar as ICS |
 
 ## 🎨 Screenshots
 
@@ -124,18 +228,25 @@ Track your daily tasks and mark them as complete.
 
 ![Tasks View](https://github.com/user-attachments/assets/3623fa0b-6b4c-40f1-b383-9bf73c33edf3)
 
+### Analytics Dashboard
+View your learning progress and performance trends.
+
+![Analytics](https://github.com/user-attachments/assets/24165b33-6e8f-4fbe-9299-d795395ba209)
+
 ## 🛠️ Tech Stack
 
 ### Backend
 - **Express.js** - Web framework
 - **OpenAI API** - AI-powered plan generation
-- **CORS** - Cross-origin resource sharing
-- **UUID** - Unique ID generation
+- **MongoDB/Mongoose** - Database (optional)
+- **Multer** - File upload handling
+- **pdf-parse** - PDF parsing for syllabus upload
 
 ### Frontend
 - **React 19** - UI library
 - **React Router** - Client-side routing
-- **Tailwind CSS** - Utility-first CSS framework
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **Recharts** - Data visualization
 - **Vite** - Build tool and dev server
 
 ## 🔧 Configuration
@@ -146,26 +257,50 @@ Track your daily tasks and mark them as complete.
 |----------|-------------|----------|
 | `PORT` | Backend server port (default: 5000) | No |
 | `OPENAI_API_KEY` | OpenAI API key for AI features | No |
+| `MONGODB_URI` | MongoDB connection string | No |
 
-> Note: The app works without an OpenAI API key using intelligent mock responses.
+> Note: The app works without OpenAI API key using intelligent mock responses, and without MongoDB using in-memory storage.
+
+### MongoDB Setup (Optional)
+
+For persistent data storage, set up MongoDB:
+
+1. **Local MongoDB**:
+   ```
+   MONGODB_URI=mongodb://localhost:27017/ai-study-planner
+   ```
+
+2. **MongoDB Atlas** (Cloud):
+   ```
+   MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/ai-study-planner
+   ```
 
 ## 📝 Usage
 
-1. **Create a Study Plan**
-   - Navigate to "Create Plan"
-   - Enter your subject, duration, and learning goals
-   - Select your difficulty level
-   - Click "Generate Study Plan"
+1. **Upload Your Syllabus**
+   - Navigate to "Syllabus" page
+   - Upload your course syllabus (PDF, TXT, or DOC)
+   - AI will extract topics and assignments automatically
 
-2. **Track Progress**
-   - View your plan details
-   - Mark tasks as complete
-   - Monitor your overall progress
+2. **Create a Study Plan**
+   - Generate from syllabus or create manually
+   - Set your subject, duration, and learning goals
+   - Get AI-powered personalized study schedule
 
-3. **Get Recommendations**
-   - Go to "Recommendations"
-   - Enter your subject and learning preferences
-   - Get personalized study tips and resources
+3. **Use Pomodoro Timer**
+   - Start focused study sessions
+   - Customize work/break intervals
+   - Track your productivity stats
+
+4. **Track Progress**
+   - View your calendar for upcoming tasks
+   - Check assignment reminders
+   - Monitor achievements and streaks
+
+5. **Get AI Help**
+   - Chat with AI tutor for questions
+   - Get study tips from AI coach
+   - Analyze your weak areas
 
 ## 🤝 Contributing
 

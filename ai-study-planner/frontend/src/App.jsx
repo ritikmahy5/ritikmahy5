@@ -14,6 +14,8 @@ import AINoteSummarizer from './pages/AINoteSummarizer';
 import AIWeaknessAnalyzer from './pages/AIWeaknessAnalyzer';
 import SyllabusUpload from './pages/SyllabusUpload';
 import AssignmentReminders from './pages/AssignmentReminders';
+import PomodoroTimer from './pages/PomodoroTimer';
+import StudyCalendar from './pages/StudyCalendar';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
             <Route path="/ai-analyzer" element={<AIWeaknessAnalyzer />} />
             <Route path="/syllabus" element={<SyllabusUpload />} />
             <Route path="/assignments" element={<AssignmentReminders />} />
+            <Route path="/pomodoro" element={<PomodoroTimer />} />
+            <Route path="/calendar" element={<StudyCalendar />} />
           </Routes>
         </main>
         <footer className="bg-white border-t border-gray-200 mt-auto py-6">

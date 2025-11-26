@@ -12,6 +12,8 @@ export default function Navbar() {
     { path: '/', label: 'Dashboard' },
     { path: '/syllabus', label: '📚 Syllabus' },
     { path: '/assignments', label: '🔔 Assignments' },
+    { path: '/pomodoro', label: '⏱️ Pomodoro' },
+    { path: '/calendar', label: '📅 Calendar' },
     { path: '/analytics', label: '📊 Analytics' },
     { path: '/quiz', label: '🧠 Quiz' },
   ];
