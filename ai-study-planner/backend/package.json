@@ -8,14 +8,21 @@
     "dev": "node server.js",
     "test": "node --test tests/"
   },
-  "keywords": ["ai", "study-planner", "education", "openai"],
+  "keywords": [
+    "ai",
+    "study-planner",
+    "education",
+    "openai"
+  ],
   "author": "Ritik Mahyavanshi",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "multer": "^2.0.2",
     "openai": "^6.9.1",
+    "pdf-parse": "^2.4.5",
     "uuid": "^13.0.0"
   }
 }

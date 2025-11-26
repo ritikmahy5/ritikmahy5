@@ -240,3 +240,255 @@ export async function getQuizHistory() {
   
   return response.json();
 }
+
+// ============== AI CHAT TUTOR ==============
+
+export async function sendChatMessage(message, subject, context) {
+  const response = await fetch(`${API_BASE_URL}/ai/chat`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ message, subject, context }),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to send message');
+  }
+  
+  return response.json();
+}
+
+export async function getChatHistory(chatId) {
+  const response = await fetch(`${API_BASE_URL}/ai/chat/${chatId}`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch chat history');
+  }
+  
+  return response.json();
+}
+
+export async function clearChatHistory(chatId) {
+  const response = await fetch(`${API_BASE_URL}/ai/chat/${chatId}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to clear chat');
+  }
+  
+  return true;
+}
+
+// ============== AI STUDY COACH ==============
+
+export async function getCoachingAdvice(data) {
+  const response = await fetch(`${API_BASE_URL}/ai/coach`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to get coaching advice');
+  }
+  
+  return response.json();
+}
+
+// ============== AI NOTE SUMMARIZER ==============
+
+export async function summarizeNotes(text, title, type) {
+  const response = await fetch(`${API_BASE_URL}/ai/summarize`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ text, title, type }),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to summarize notes');
+  }
+  
+  return response.json();
+}
+
+export async function getSavedNotes() {
+  const response = await fetch(`${API_BASE_URL}/ai/notes`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch notes');
+  }
+  
+  return response.json();
+}
+
+export async function deleteNote(noteId) {
+  const response = await fetch(`${API_BASE_URL}/ai/notes/${noteId}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete note');
+  }
+  
+  return true;
+}
+
+// ============== AI WEAKNESS ANALYZER ==============
+
+export async function analyzeWeaknesses() {
+  const response = await fetch(`${API_BASE_URL}/ai/analyze-weaknesses`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to analyze weaknesses');
+  }
+  
+  return response.json();
+}
+
+// ============== SYLLABUS UPLOAD ==============
+
+export async function uploadSyllabus(file, subject, semester, professor) {
+  const formData = new FormData();
+  formData.append('syllabus', file);
+  formData.append('subject', subject);
+  if (semester) formData.append('semester', semester);
+  if (professor) formData.append('professor', professor);
+  
+  const response = await fetch(`${API_BASE_URL}/syllabus/upload`, {
+    method: 'POST',
+    body: formData,
+  });
+  
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || 'Failed to upload syllabus');
+  }
+  
+  return response.json();
+}
+
+export async function getSyllabi() {
+  const response = await fetch(`${API_BASE_URL}/syllabus`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch syllabi');
+  }
+  
+  return response.json();
+}
+
+export async function getSyllabus(id) {
+  const response = await fetch(`${API_BASE_URL}/syllabus/${id}`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch syllabus');
+  }
+  
+  return response.json();
+}
+
+export async function deleteSyllabus(id) {
+  const response = await fetch(`${API_BASE_URL}/syllabus/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete syllabus');
+  }
+  
+  return true;
+}
+
+export async function generatePlanFromSyllabus(syllabusId, options = {}) {
+  const response = await fetch(`${API_BASE_URL}/syllabus/${syllabusId}/generate-plan`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(options),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to generate plan');
+  }
+  
+  return response.json();
+}
+
+// ============== ASSIGNMENTS ==============
+
+export async function getAssignments(filters = {}) {
+  const params = new URLSearchParams();
+  if (filters.subject) params.append('subject', filters.subject);
+  if (filters.upcoming) params.append('upcoming', 'true');
+  if (filters.completed !== undefined) params.append('completed', filters.completed);
+  
+  const url = `${API_BASE_URL}/assignments${params.toString() ? '?' + params.toString() : ''}`;
+  const response = await fetch(url);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch assignments');
+  }
+  
+  return response.json();
+}
+
+export async function createAssignment(data) {
+  const response = await fetch(`${API_BASE_URL}/assignments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to create assignment');
+  }
+  
+  return response.json();
+}
+
+export async function updateAssignment(id, updates) {
+  const response = await fetch(`${API_BASE_URL}/assignments/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updates),
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to update assignment');
+  }
+  
+  return response.json();
+}
+
+export async function deleteAssignment(id) {
+  const response = await fetch(`${API_BASE_URL}/assignments/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete assignment');
+  }
+  
+  return true;
+}
+
+export async function getAssignmentReminders() {
+  const response = await fetch(`${API_BASE_URL}/assignments/reminders`);
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch reminders');
+  }
+  
+  return response.json();
+}
