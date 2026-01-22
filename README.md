@@ -1,107 +1,79 @@
 # 👋 Hey there, I'm Ritik Mahyavanshi
 
-> 🚀 Turning real-world problems into powerful backend and AI-driven solutions
-
-I’m a developer, researcher, and problem-solver building future-proof tech at the crossroads of **AI**, **Backend Engineering**, and **Distributed Systems**. Currently gearing up for my **MS in Computer Science at Northeastern University – Silicon Valley (Fall 2025)**, I focus on creating impactful products with deep technical roots.
+> AI/ML engineer & backend developer building reliable, data-driven systems at scale.
 
 ---
 
-![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
+## 🎓 Education
+- **Northeastern University** — M.S. in Computer Science, GPA: **3.83** (09/2025 – 05/2027), San Jose, USA  
+  **Coursework:** Algorithms, Databases, NLP, Deep Learning, Computer Vision & Pattern Recognition
+- **Dhirubhai Ambani University (DA-IICT)** — B.Tech in Information & Communication Technology (11/2020 – 06/2024), Gandhinagar, India
 
 ---
 
-## 📌 Tech Stack
-
-**Languages:**  
-![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat&logo=java&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC.svg?style=flat&logo=typescript&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C.svg?style=flat&logo=c%2B%2B&logoColor=white)
-
-**Backend & Systems:**  
-![Spring Boot](https://img.shields.io/badge/SpringBoot-%236DB33F.svg?style=flat&logo=springboot&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933.svg?style=flat&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-000000.svg?style=flat&logo=express&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20.svg?style=flat&logo=apache-kafka&logoColor=white)
-
-**Frontend:**  
-![React](https://img.shields.io/badge/React-20232A.svg?style=flat&logo=react&logoColor=61DAFB)
-![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-06B6D4.svg?style=flat&logo=tailwind-css&logoColor=white)
-
-**Databases:**  
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192.svg?style=flat&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248.svg?style=flat&logo=mongodb&logoColor=white)
-
-**Tools & DevOps:**  
-![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=flat&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=flat&logo=github-actions&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000.svg?style=flat&logo=vercel&logoColor=white)
+## 🛠️ Technical Skills
+- **Languages & Databases:** Python, TypeScript, JavaScript, Java, C++, Oracle, PostgreSQL, MongoDB, MySQL  
+- **Frameworks & Libraries:** Node.js, React, FastAPI, TensorFlow/Keras, PyTorch, LangChain, Apache Spark, Pandas, NumPy, Scikit-learn  
+- **Data Science & ML:** Statistical Modeling, Machine Learning, Data Mining, Hypothesis Testing, Linear & Unsupervised Learning, Generative AI, LLMs, Agent Orchestration  
+- **DevOps & Infrastructure:** Docker, Kubernetes, Jenkins (CI/CD), Git, Kafka, Redis, AWS, GCP
 
 ---
 
-## 🔧 Currently Building
-
-- 🎙️ **AI-Based Interview Integrity System** – real-time AI-cheating detection for interviews using voice analysis, camera behavior, and answer patterns  
-- 📡 **Internship Tracker (Fall'25 Edition)** – platform that monitors job boards, sends real-time alerts, and helps track internship applications  
-- 🧠 Exploring **Whisper-based multilingual speech representations** for robust, speaker-independent dysarthric ASR  
-
----
-
-## 🔬 Research & Publications
-
-📌 **Research Interests**: Speech processing, Whisper models, Deepfake detection, Dysarthric ASR  
-📝 **Recent**: _"Whisper Encoder Features for Severity-Dependent Speaker-Independent Dysarthric ASR"_ – submitted to **Interspeech 2025**  
-📚 **Past Work**:  
-- Audio Deepfake Detection using MFCC, LFCC, LFRCC, TECC, CNN, ResNet  
-- Speaker-independent modeling using Wav2Vec and Whisper  
-🧪 **RA Experience**: Speech Research Lab – worked on signal processing & deep learning for vulnerable speech populations  
+## 💼 Professional Experience
+- **Expo Essentials | Web Developer Intern** (Anand, Gujarat) — *10/2024 – 02/2025*  
+  - Built cloud-native microservices handling 1,000+ concurrent users with MongoDB optimization (sub-200ms response times).  
+  - Designed a real-time analytics pipeline for stream data, reducing latency by ~200ms and enabling live personalization.
+- **Speech Research Lab (DAIICT) | Undergraduate Research Assistant** (Gandhinagar, India) — *08/2023 – 09/2024*  
+  - Engineered a deepfake detection system using TECC-ResNet with MFCC/LFCC/LFRCC features; achieved **7.5% EER**.  
+  - Established data annotation and QA protocols for **850+** audio samples in India’s BHASINI Project to ensure statistical reliability.  
+- **OpsHub Inc | Solutions Engineering Intern** (Ahmedabad, India) — *05/2023 – 06/2023*  
+  - Built a Spark-based data engineering pipeline for **250GB+** migrations across 3 Fortune 500 clients; automated extraction & transformation scripts for data integrity.
 
 ---
 
-## 💼 Selected Projects
-
-### 🧠 AI Interview Integrity Platform *(B2B SaaS – WIP)*
-Real-time monitoring system to detect AI-assisted cheating during job interviews through voice pattern detection, behavior analytics, and webcam activity.
-
-### 📊 Stock Market Predictor (Deep Learning)
-LSTM, GRU, and CNN-based models for long-term stock price prediction. Benchmarked against traditional ARIMA and evaluated for RMSE and MAPE.
-
-### 🧬 AI Disease Prediction System
-Full-stack ML app with advanced Streamlit UI. Supports ANN, SVM, Random Forest with real-world noise modeling, confidence display, and prediction logs.
-
-### 🛰️ Internship Tracker Platform *(Fall'25 Focused – WIP)*
-Scrapes job portals, sends real-time alerts, allows custom filters, and helps students track job/internship applications. Privacy-first local setup.
+## 🧪 Academic Projects
+- **ER Triage Simulation & Starvation-Free Scheduling (DPF)**  
+  Built a discrete-event ER scheduling simulator with heap-based priority queues and a dynamic aging algorithm, improving low-acuity patient wait times by **3–7×**.
+- **Circular Dependency Detective — RAG-Powered Python Static Analysis**  
+  End-to-end NLP + graph solution (NetworkX, Tarjan SCC, ChromaDB, CodeLlama) to detect circular dependencies and generate automated refactoring suggestions from **42k+** patterns; full-stack app in Python/Streamlit/Docker with severity-based ranking and real-time AI chat assistance.
+- **Recommendation System Research (Knowledge Discovery Lab)**  
+  Designed content-based recommender systems and ranking algorithms; compared collaborative filtering vs. graph-based approaches to improve retrieval accuracy.
 
 ---
 
-## 🎓 Education & Experience
-
-🎓 **DA-IICT** – BTech in ICT (2020–2024)  
-🎓 **Northeastern University – Silicon Valley** – MS in CS (Incoming Fall 2025)  
-💼 **OpsHub** – Summer Internship (2024)
+## 📚 Publication
+- R. Mahyavanshi, C. V. M. Reddy, A. J. Shah, H. A. Patil, **“Teager Energy Cepstral Coefficients for Audio Deepfake Detection,”** *APSIPA ASC 2024, Macao, China.*
 
 ---
 
-## 📊 GitHub Stats (Dark Mode)
+## 🧭 Leadership & Co-Curricular
+- **Deputy Convener, Student Placement Cell:** Led a 33-member cross-functional team for campus recruitment & training; mentored **600+** students on interview prep and career readiness.  
+- **Research Assistant, Pore Pressure Prediction Project:** Performed data analysis and predictive modeling for geophysical pore pressure estimation using ML techniques.
 
-![Ritik's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ritikmahy5&show_icons=true&theme=tokyonight)
+---
+
+## 📌 Currently Building
+- Real-time **AI-based interview integrity** system (voice, behavior, and answer-pattern analysis).  
+
+
+---
+
+## 📊 GitHub Stats
+![Ritik's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ritikmahy5&show_icons=true&theme=tokyonight)  
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ritikmahy5&layout=compact&theme=tokyonight)
 
 ---
 
 ## 👁️ Visitor Count
-
 ![Visitor Badge](https://komarev.com/ghpvc/?username=ritikmahy5&label=Visitors&color=0e75b6&style=flat)
 
 ---
 
 ## 💬 Let’s Connect
-
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ritikmahyavanshi)
-[![Email](https://img.shields.io/badge/-Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:ritikmahyavanshi2311@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ritikmahyavanshi)  
+[![Email](https://img.shields.io/badge/-Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:ritikmahyavanshi2311@gmail.com)  
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=flat&logo=vercel&logoColor=white)](https://ritikmahy5.vercel.app)
 
 ---
 
-Thanks for stopping by! If you find my work interesting, feel free to connect or collaborate. 😊  
-Let’s build something meaningful together.
+*Thanks for stopping by—let’s build something meaningful together.*
