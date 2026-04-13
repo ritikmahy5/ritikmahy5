@@ -1,65 +1,61 @@
 # 👋 Hey there, I'm Ritik Mahyavanshi
 
-> AI/ML engineer & backend developer building reliable, data-driven systems at scale.
+> AI/ML researcher & engineer building reliable, data-driven systems — from LLM fine-tuning to large-scale geological modeling.
 
 ---
 
 ## 🎓 Education
-- **Northeastern University** — M.S. in Computer Science, GPA: **3.83** (09/2025 – 05/2027), San Jose, USA  
-  **Coursework:** Algorithms, Databases, NLP, Deep Learning, Computer Vision & Pattern Recognition
-- **Dhirubhai Ambani University (DA-IICT)** — B.Tech in Information & Communication Technology (11/2020 – 06/2024), Gandhinagar, India
+- **Northeastern University** — M.S. in Computer Science, GPA: **3.83/4.0** (09/2025 – 05/2027), San Jose, CA
+  **Coursework:** Algorithms, NLP, Deep Learning, Computer Vision & Pattern Recognition
+- **DAIICT** — B.Tech in Information & Communication Technology (11/2020 – 06/2024), Gandhinagar, India
 
 ---
 
 ## 🛠️ Technical Skills
-- **Languages & Databases:** Python, TypeScript, JavaScript, Java, C++, Oracle, PostgreSQL, MongoDB, MySQL  
-- **Frameworks & Libraries:** Node.js, React, FastAPI, TensorFlow/Keras, PyTorch, LangChain, Apache Spark, Pandas, NumPy, Scikit-learn  
-- **Data Science & ML:** Statistical Modeling, Machine Learning, Data Mining, Hypothesis Testing, Linear & Unsupervised Learning, Generative AI, LLMs, Agent Orchestration  
-- **DevOps & Infrastructure:** Docker, Kubernetes, Jenkins (CI/CD), Git, Kafka, Redis, AWS, GCP
+- **Languages:** Python, TypeScript, JavaScript, Java, C++, SQL
+- **ML/AI:** PyTorch, TensorFlow/Keras, Scikit-learn, LangChain, HuggingFace Transformers, LLMs, RAG, Agent Orchestration
+- **Data & Infrastructure:** PostgreSQL, MongoDB, Apache Spark, Pandas, NumPy, Docker, Kubernetes, AWS, GCP, Git
+- **Frameworks:** FastAPI, Node.js, React, Kafka, Redis, Jenkins CI/CD
 
 ---
 
 ## 💼 Professional Experience
-- **Expo Essentials | Web Developer Intern** (Anand, Gujarat) — *10/2024 – 02/2025*  
-  - Built cloud-native microservices handling 1,000+ concurrent users with MongoDB optimization (sub-200ms response times).  
-  - Designed a real-time analytics pipeline for stream data, reducing latency by ~200ms and enabling live personalization.
-- **Speech Research Lab (DAIICT) | Undergraduate Research Assistant** (Gandhinagar, India) — *08/2023 – 09/2024*  
-  - Engineered a deepfake detection system using TECC-ResNet with MFCC/LFCC/LFRCC features; achieved **7.5% EER**.  
-  - Established data annotation and QA protocols for **850+** audio samples in India’s BHASINI Project to ensure statistical reliability.  
-- **OpsHub Inc | Solutions Engineering Intern** (Ahmedabad, India) — *05/2023 – 06/2023*  
-  - Built a Spark-based data engineering pipeline for **250GB+** migrations across 3 Fortune 500 clients; automated extraction & transformation scripts for data integrity.
+- **Northeastern University Silicon Valley | Research Assistant** — *01/2026 – Present*
+  - Developed a physics-constrained meta-ensemble (CNN + RNN + XGBoost with stacking) achieving **R² = 0.94** on blind well predictions for subsurface geological modeling.
+  - Engineered a domain adaptation approach that reduced labeled target data requirements by **85%** while resolving catastrophic transfer failure; validated on **1.1M+ samples** across **98 wells**.
+- **Speech Research Lab, DAIICT | Undergraduate Research Assistant** (Gandhinagar, India) — *08/2023 – 09/2024*
+  - Engineered an audio deepfake detection system using TECC-ResNet with MFCC, LFCC, and LFRCC feature extraction, achieving **7.5% EER** (published at APSIPA ASC 2024).
+  - Established data annotation protocols for **850+** audio samples in India's BHASINI Project, enabling multilingual speech recognition across Indian languages.
+- **OpsHub Inc | Solutions Engineering Intern** (Ahmedabad, India) — *05/2023 – 06/2023*
+  - Built an Apache Spark data pipeline for large-scale migration (**250GB+ datasets**) serving 3 Fortune 500 clients; developed ETL scripts ensuring data integrity and schema validation.
 
 ---
 
-## 🧪 Academic Projects
-- **ER Triage Simulation & Starvation-Free Scheduling (DPF)**  
-  Built a discrete-event ER scheduling simulator with heap-based priority queues and a dynamic aging algorithm, improving low-acuity patient wait times by **3–7×**.
-- **Circular Dependency Detective — RAG-Powered Python Static Analysis**  
-  End-to-end NLP + graph solution (NetworkX, Tarjan SCC, ChromaDB, CodeLlama) to detect circular dependencies and generate automated refactoring suggestions from **42k+** patterns; full-stack app in Python/Streamlit/Docker with severity-based ranking and real-time AI chat assistance.
-- **Recommendation System Research (Knowledge Discovery Lab)**  
-  Designed content-based recommender systems and ranking algorithms; compared collaborative filtering vs. graph-based approaches to improve retrieval accuracy.
+## 🧪 Selected Projects
+- **Speculator-Aware Fine-Tuning for LLM Inference** *(Mar 2026)*
+  Developed KL-divergence regularization for LoRA fine-tuning that preserves speculative decoding acceptance rates; recovered up to **33.5%** degradation across Llama, Qwen, and Gemma model families. Conducted lambda sweep, loss function ablation (KL, JS, TV), and cross-family validation showing **ΔKL > 0.30** correctly classifies vulnerability in 8/9 family×domain cases.
+- **CSJ-ID: Generative Recommendation Framework** *(Jan – Feb 2026)*
+  Built a novel PyTorch framework combining LightGCN graph neural network and SentenceTransformer embeddings via multi-objective RQ-VAE, achieving **+144% Recall@10** over baselines on 198K interactions.
+- **ftune: LLM Fine-Tuning Cost & Memory Estimator** *(Open Source, Feb 2026)*
+  CLI tool predicting GPU VRAM requirements for LLM fine-tuning (LoRA, QLoRA) across **10+ HuggingFace models** (Llama, Mistral, Gemma) with cost comparison across **6 cloud providers**.
+- **Circular Dependency Detective — RAG-Powered Static Analysis** *(Oct – Dec 2025)*
+  End-to-end NLP + graph solution (NetworkX, Tarjan SCC, ChromaDB, CodeLlama) detecting circular dependencies and generating refactoring suggestions from **42k+** patterns; full-stack app with severity ranking.
 
 ---
 
 ## 📚 Publication
-- R. Mahyavanshi, C. V. M. Reddy, A. J. Shah, H. A. Patil, **“Teager Energy Cepstral Coefficients for Audio Deepfake Detection,”** *APSIPA ASC 2024, Macao, China.*
+- R. Mahyavanshi, C. V. M. Reddy, A. J. Shah, H. A. Patil, **"Teager Energy Cepstral Coefficients for Audio Deepfake Detection,"** *APSIPA ASC 2024, Macao, China.*
 
 ---
 
-## 🧭 Leadership & Co-Curricular
-- **Deputy Convener, Student Placement Cell:** Led a 33-member cross-functional team for campus recruitment & training; mentored **600+** students on interview prep and career readiness.  
-- **Research Assistant, Pore Pressure Prediction Project:** Performed data analysis and predictive modeling for geophysical pore pressure estimation using ML techniques.
-
----
-
-## 📌 Currently Building
-- Real-time **AI-based interview integrity** system (voice, behavior, and answer-pattern analysis).  
-
+## 🧭 Leadership & Teaching
+- **Teaching Assistant, CS 6140 Machine Learning** (Northeastern): Lead weekly discussions, mentor student teams on ML projects, and support **50+** students.
+- **Deputy Convener, Student Placement Cell** (DAIICT): Led a 33-member cross-functional team coordinating campus recruitment; mentored **600+** students in interview preparation.
 
 ---
 
 ## 📊 GitHub Stats
-![Ritik's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ritikmahy5&show_icons=true&theme=tokyonight)  
+![Ritik's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ritikmahy5&show_icons=true&theme=tokyonight)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ritikmahy5&layout=compact&theme=tokyonight)
 
 ---
@@ -69,11 +65,12 @@
 
 ---
 
-## 💬 Let’s Connect
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ritikmahyavanshi)  
-[![Email](https://img.shields.io/badge/-Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:ritikmahyavanshi2311@gmail.com)  
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=flat&logo=vercel&logoColor=white)](https://ritikmahy5.vercel.app)
+## 💬 Let's Connect
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/ritikmahyavanshi)
+[![Email](https://img.shields.io/badge/-Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:mahyavanshiritik2311@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=flat&logo=vercel&logoColor=white)](https://ritikmahyavanshi.com)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/ritikmahy5)
 
 ---
 
-*Thanks for stopping by—let’s build something meaningful together.*
+*Thanks for stopping by — let's build something meaningful together.*
