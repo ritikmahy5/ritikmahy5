@@ -21,8 +21,8 @@
 
 ## 💼 Professional Experience
 - **Northeastern University Silicon Valley | Research Assistant** — *01/2026 – Present*
-  - Developed a physics-constrained meta-ensemble (CNN + RNN + XGBoost with stacking) achieving **R² = 0.94** on blind well predictions for subsurface geological modeling.
-  - Engineered a domain adaptation approach that reduced labeled target data requirements by **85%** while resolving catastrophic transfer failure; validated on **1.1M+ samples** across **98 wells**.
+  - Built a physics-constrained stacking ensemble (XGBoost + Random Forest + RNN + CNN) on **273K+ well-log samples** from **21 Potwar Basin wells**, achieving test **R² = 0.90** on 4 blind wells for pore pressure prediction using Eaton-ratio and gradient-based engineered features.
+  - Designed a Leave-One-Well-Out cross-validation pipeline with meta-learner stacking and stabilized catastrophic fold collapse (**R² = -1.49×10¹³ → 0.93**) via RobustScaler, gradient clipping, and target-space regularization; validated across A100/H200 GPUs.
 - **Speech Research Lab, DAIICT | Undergraduate Research Assistant** (Gandhinagar, India) — *08/2023 – 09/2024*
   - Engineered an audio deepfake detection system using TECC-ResNet with MFCC, LFCC, and LFRCC feature extraction, achieving **7.5% EER** (published at APSIPA ASC 2024).
   - Established data annotation protocols for **850+** audio samples in India's BHASINI Project, enabling multilingual speech recognition across Indian languages.
