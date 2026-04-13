@@ -55,8 +55,10 @@
 ---
 
 ## 📊 GitHub Stats
-![Ritik's GitHub Stats](https://github-readme-stats.vercel.app/api?username=ritikmahy5&show_icons=true&theme=tokyonight)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ritikmahy5&layout=compact&theme=tokyonight)
+
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=ritikmahy5&theme=tokyonight&hide_border=true" />
+</p>
 
 ---
 
