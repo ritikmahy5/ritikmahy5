@@ -1,6 +1,6 @@
 # 👋 Hey there, I'm Ritik Mahyavanshi
 
-> AI/ML researcher & engineer building reliable, data-driven systems — from LLM fine-tuning to large-scale geological modeling.
+> AI/ML researcher
 
 ---
 
