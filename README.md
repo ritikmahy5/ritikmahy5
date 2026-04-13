@@ -5,7 +5,7 @@
 ---
 
 ## 🎓 Education
-- **Northeastern University** — M.S. in Computer Science, GPA: **3.83/4.0** (09/2025 – 05/2027), San Jose, CA
+- **Northeastern University** — M.S. in Computer Science, GPA: **3.83/4.0** (09/2025 – 05/2027), San Jose, CA<br>
   **Coursework:** Algorithms, NLP, Deep Learning, Computer Vision & Pattern Recognition
 - **DAIICT** — B.Tech in Information & Communication Technology (11/2020 – 06/2024), Gandhinagar, India
 
