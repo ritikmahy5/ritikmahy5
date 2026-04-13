@@ -31,7 +31,7 @@
 
 ---
 
-## 🧪 Selected Projects
+## 🧪 Projects
 - **Speculator-Aware Fine-Tuning for LLM Inference** *(Mar 2026)*
   Developed KL-divergence regularization for LoRA fine-tuning that preserves speculative decoding acceptance rates; recovered up to **33.5%** degradation across Llama, Qwen, and Gemma model families. Conducted lambda sweep, loss function ablation (KL, JS, TV), and cross-family validation showing **ΔKL > 0.30** correctly classifies vulnerability in 8/9 family×domain cases.
 - **CSJ-ID: Generative Recommendation Framework** *(Jan – Feb 2026)*
